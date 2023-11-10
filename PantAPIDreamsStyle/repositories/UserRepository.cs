@@ -13,7 +13,7 @@ namespace ApiPersons.Repositories
     {
         public const string SQL_GET_USERS = "CALL get_users()";
         public const string SQL_GET_USER = "CALL search_user(@document_number)";
-        public const string SQL_ADD_USERS = "CALL insert_user(@name_user, @lastname_user, @document_number, @document_type, @person_status, @email, @password)";
+        public const string SQL_ADD_USERS = "CALL insert_user(@name_user, @lastname_user, @document_number, @document_type, 1, @email, @password)";
         public const string SQL_UPDATE_USERS = "CALL update_user(@name_user, @lastname_user, @document_number, @document_type, @person_status, @email, @password)";
         public const string SQL_DELETE_USERS = "CALL delete_user(@document_number)";
         public const string SQL_GET_USER_BY_CREDENTIALS = "CALL validate_credential(@email, @password)";
@@ -48,7 +48,8 @@ namespace ApiPersons.Repositories
         public async Task<bool> addUser(User user)
         {
             var db = dbConnection();
-            var result = await db.ExecuteAsync(@SQL_ADD_USERS, new { user.name_user, user.lastname_user, user.document_number, user.document_type, user.person_status, user.email, user.password });
+            var result = await db.ExecuteAsync(@SQL_ADD_USERS, new { name_user = user.name_user, lastname_user = user.lastname_user,
+                document_number = user.document_number, document_type = user.document_type, email = user.email, password = user.password });
             return result > 0;
         }
 
@@ -62,7 +63,7 @@ namespace ApiPersons.Repositories
         public async Task<bool> updateUser(User user)
         {
             var db = dbConnection();
-            var result = await db.ExecuteAsync(@SQL_UPDATE_USERS, new {  user.name_user, user.lastname_user, user.document_type, user.document_number, user.person_status });
+            var result = await db.ExecuteAsync(@SQL_UPDATE_USERS, new {  user.name_user, user.lastname_user, user.document_type, user.document_number });
             return result > 0;
         }
 

@@ -52,11 +52,19 @@ namespace ApiPersons.Controllers
         public async Task<IActionResult> addUser([FromBody] User user)
         {
             if (user == null)
-                return BadRequest();
+                return BadRequest("El objeto 'user' es nulo.");
+
             if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            {
+                var errors = ModelState.Values
+                    .SelectMany(v => v.Errors)
+                    .Select(e => e.ErrorMessage);
+
+                return BadRequest(errors);
+            }
             return Created("Created", await userRepository.addUser(user));
         }
+
 
         [HttpPost("login/")]
         public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
@@ -71,6 +79,29 @@ namespace ApiPersons.Controllers
                 return Unauthorized();
             }
             return Ok(new { message = "Ingresaste con exito a DreamsStyle." });
+        }
+
+        private string GenerateTemporaryToken(int userId)
+        {
+            var claims = new[]
+            {
+            new Claim(JwtRegisteredClaimNames.Sub, userId.ToString()),
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+            new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString(), ClaimValueTypes.Integer64)
+        };
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:SecretKey"]));
+            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(
+                configuration["Jwt:Issuer"],
+                configuration["Jwt:Audience"],
+                claims,
+                expires: DateTime.UtcNow.AddMinutes(30), // Establecer el tiempo de expiración según tus necesidades
+                signingCredentials: credentials
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
 
