@@ -7,6 +7,7 @@ namespace ApiPersons.Repositories
     {
         Task<IEnumerable<User>> getListUsers();
         Task<User> getUser(string documentNumber);
+        Task<User> getUserEmail(string email);
         Task<bool> addUser(User user);
         Task<bool> removeUser(User user);
         Task<bool> updateUser(User user);

@@ -45,6 +45,12 @@ namespace ApiPersons.Repositories
             return await db.QueryFirstAsync<User>(@SQL_GET_USER, new { document_number = document_number });
         }
 
+        public async Task<User> getUserEmail(string email)
+        {
+            var db = dbConnection();
+            return await db.QueryFirstAsync<User>(@SQL_GET_USER_EMAIL, new { email = email });
+        }
+
         public async Task<bool> addUser(User user)
         {
             var db = dbConnection();

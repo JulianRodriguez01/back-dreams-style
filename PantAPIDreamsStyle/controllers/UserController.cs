@@ -2,7 +2,13 @@
 using ApiPersons.Utilities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using PantAPIDreamsStyle.models.user;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Security.Cryptography;
+
+using System.Text;
 
 namespace ApiPersons.Controllers
 {
@@ -27,6 +33,15 @@ namespace ApiPersons.Controllers
         public async Task<IActionResult> getUser(string document_number)
         {
             var user = await userRepository.getUser(document_number);
+            return Ok(user);
+        }
+
+        [HttpGet("user/email/{email}")]
+        [ProducesResponseType(typeof(User), 200)]
+        [ProducesResponseType(typeof(string), 404)]
+        public async Task<IActionResult> getUserEmail(string email)
+        {
+            var user = await userRepository.getUserEmail(email);
             return Ok(user);
         }
 
@@ -65,7 +80,6 @@ namespace ApiPersons.Controllers
             return Created("Created", await userRepository.addUser(user));
         }
 
-
         [HttpPost("login/")]
         public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
         {
@@ -78,33 +92,39 @@ namespace ApiPersons.Controllers
             {
                 return Unauthorized();
             }
-            return Ok(new { message = "Ingresaste con exito a DreamsStyle." });
+            var tokenString = GenerateJwtToken(loginModel.Email);
+            return Ok(new { token = tokenString, message = "Ingresaste con éxito a DreamsStyle." });
         }
 
-        private string GenerateTemporaryToken(int userId)
+        private string GenerateJwtToken(string email)
         {
-            var claims = new[]
+            if (string.IsNullOrEmpty(email))
             {
-            new Claim(JwtRegisteredClaimNames.Sub, userId.ToString()),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString(), ClaimValueTypes.Integer64)
-        };
+                throw new ArgumentNullException(nameof(email), "El correo electrónico no puede ser nulo o vacío. uwu");
+            }
+            var key = new byte[32];
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(key);
+            }
+            var tokenHandler = new JwtSecurityTokenHandler();
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:SecretKey"]));
-            var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+            new Claim(ClaimTypes.Name, email),
+                }),
+                Expires = DateTime.UtcNow.AddHours(1),
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+            };
 
-            var token = new JwtSecurityToken(
-                configuration["Jwt:Issuer"],
-                configuration["Jwt:Audience"],
-                claims,
-                expires: DateTime.UtcNow.AddMinutes(30), // Establecer el tiempo de expiración según tus necesidades
-                signingCredentials: credentials
-            );
-
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+            var tokenString = tokenHandler.WriteToken(token);
+            return tokenString;
         }
 
-
+        
         [HttpPost("send-email/{email}")]
         public async Task<IActionResult> SendRecoveryEmail([FromBody] RecoveryEmailModel recoveryEmailModel)
         {
