@@ -2,6 +2,7 @@
 {
     public class User
     {
+        public int  id_user { get; set; }
         public string name_user { get; set; }
         public string lastname_user { get; set; }
         public string document_number { get; set; }

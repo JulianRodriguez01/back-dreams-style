@@ -73,7 +73,6 @@ namespace ApiPersons.Repositories
             return result > 0;
         }
 
-
         public async Task<User> login(string email, string password)
         {
             try
