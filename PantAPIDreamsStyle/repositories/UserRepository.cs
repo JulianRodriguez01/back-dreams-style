@@ -14,7 +14,7 @@ namespace ApiPersons.Repositories
         public const string SQL_GET_USERS = "CALL get_users()";
         public const string SQL_GET_USER = "CALL search_user(@document_number)";
         public const string SQL_ADD_USERS = "CALL insert_user(@name_user, @lastname_user, @document_number, @document_type, 1, @email, @password)";
-        public const string SQL_UPDATE_USERS = "CALL update_user(@name_user, @lastname_user, @document_number, @document_type, @person_status, @email, @password)";
+        public const string SQL_UPDATE_USERS = "CALL update_user(@id_user, @name_user, @lastname_user, @email)";
         public const string SQL_DELETE_USERS = "CALL delete_user(@document_number)";
         public const string SQL_GET_USER_BY_CREDENTIALS = "CALL validate_credential(@email, @password)";
         public const string SQL_GET_USER_EMAIL = "CALL get_user_email(@email)";
@@ -66,10 +66,10 @@ namespace ApiPersons.Repositories
             return result > 0;
         }
 
-        public async Task<bool> updateUser(User user)
+        public async Task<bool> updateUser(UpdateDataUserModel updateDataUserModel)
         {
             var db = dbConnection();
-            var result = await db.ExecuteAsync(@SQL_UPDATE_USERS, new {  user.name_user, user.lastname_user, user.document_type, user.document_number });
+            var result = await db.ExecuteAsync(@SQL_UPDATE_USERS, new { id_user = user.id_user, name_user = user.name_user, lastname_user = user.lastname_user, email = user.email });
             return result > 0;
         }
 
