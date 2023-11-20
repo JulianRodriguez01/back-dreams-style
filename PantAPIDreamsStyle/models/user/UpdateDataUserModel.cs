@@ -5,16 +5,16 @@ namespace PantAPIDreamsStyle.models.user
     public class UpdateDataUserModel
     {
         [Required]
-        public string IdUser { get; set; }
+        public string id_user { get; set; }
 
         [Required]
         [EmailAddress]
-        public string Email { get; set; }
+        public string email_user { get; set; }
 
         [Required]
-        public string Name { get; set; }
+        public string name_user { get; set; }
 
         [Required]
-        public string Lastname { get; set; }
+        public string lastname_user { get; set; }
     }
 }

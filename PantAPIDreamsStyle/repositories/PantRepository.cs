@@ -14,7 +14,7 @@ namespace PantAPIDreamsStyle.repositories
         public const string SQL_GET_STICKERS = "SELECT * FROM dreams_style.sticker";
         public const string SQL_GET_ACCESORIES = "SELECT * FROM dreams_style.accessorie";
         public const string SQL_GET_PANTS_USER = "CALL get_pant_user(@document_number)";
-        public const string SQL_ADD_PANT = "INSERT INTO `dreams_style`.`custom_pant` (`id_pant_measurement`, `id_fabric`, `type_of_closure`) VALUES (@id_pant_measurement, @id_fabric, @type_of_closure)";
+        public const string SQL_ADD_PANT = "INSERT INTO `dreams_style`.`custom_pant` (`id_pant_measurement`, `id_fabric`, `type_of_closure`) VALUES (@id_pant_measurement, @id_fabric, 'cremallera')";
         public const string SQL_SET_MEASUREMENT = "CALL set_measurement(@contour_size_cm, @crotch_length_cm, @wide_hip_cm, @wide_boot_cm, @wide_thigh_cm, @long_cm)";
         public const string SQL_ADD_MEASUREMENT = "CALL add_measurement(@contour_size_cm, @crotch_length_cm, @wide_hip_cm, @wide_boot_cm, @wide_thigh_cm, @long_cm)";
         public const string SQL_SET_FABRIC = "UPDATE `dreams_style`.`custom_pant` SET `id_fabric` = @id_fabric WHERE (`id_pant` = @id_pant);";
@@ -75,7 +75,7 @@ namespace PantAPIDreamsStyle.repositories
         public async Task<bool> addPant(Pant pant)
         {
             var db = dbConnection();
-            var result = await db.ExecuteAsync(SQL_ADD_PANT, new { id_pant_measurement = pant.id_pant_measurement, id_fabric = pant.id_fabric, type_of_closure = pant.type_of_closure});
+            var result = await db.ExecuteAsync(SQL_ADD_PANT, new { id_pant_measurement = pant.id_pant_measurement, id_fabric = pant.id_fabric });
             return result > 0;
         }
 

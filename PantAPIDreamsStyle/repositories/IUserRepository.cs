@@ -10,7 +10,7 @@ namespace ApiPersons.Repositories
         Task<User> getUserEmail(string email);
         Task<bool> addUser(User user);
         Task<bool> removeUser(User user);
-        Task<bool> updateUser(User user);
+        Task<bool> updateUser(UpdateDataUserModel updateDataUserModel);
         Task<User> login(string email, string password);
         Task<User> getUserRecoveryAccount(string email);
         Task<User> UpdateNewPassword(string email, string token, string newPassword);

@@ -69,7 +69,7 @@ namespace ApiPersons.Repositories
         public async Task<bool> updateUser(UpdateDataUserModel updateDataUserModel)
         {
             var db = dbConnection();
-            var result = await db.ExecuteAsync(@SQL_UPDATE_USERS, new { id_user = user.id_user, name_user = user.name_user, lastname_user = user.lastname_user, email = user.email });
+            var result = await db.ExecuteAsync(@SQL_UPDATE_USERS, new { id_user = updateDataUserModel.id_user, name_user = updateDataUserModel.name_user, lastname_user = updateDataUserModel.lastname_user, email = updateDataUserModel.email_user });
             return result > 0;
         }
 

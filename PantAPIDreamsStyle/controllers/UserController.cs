@@ -46,13 +46,16 @@ namespace ApiPersons.Controllers
         }
 
         [HttpPut("update-user/")]
-        public async Task<IActionResult> updateUser([FromBody] User user)
+        public async Task<IActionResult> updateUser([FromBody] UpdateDataUserModel updateDataUserModel)
         {
-            if (user == null)
+            if (updateDataUserModel == null)
+            {
                 return BadRequest();
-            if (!ModelState.IsValid)
+            }
+            if (!ModelState.IsValid) {
                 return BadRequest(ModelState);
-            await userRepository.updateUser(user);
+            }
+            await userRepository.updateUser(updateDataUserModel);
             return NoContent();
         }
 
