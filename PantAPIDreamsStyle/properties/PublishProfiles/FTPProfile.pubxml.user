@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAo/82pp1vDkiZl3nP4VsaswAAAAACAAAAAAAQZgAAAAEAACAAAADBE00mjCsv+gcwionVeQ6G+epA+99pVa/oAlGtxKrzzgAAAAAOgAAAAAIAACAAAACSfUJtGEy4H7n658gDmTbZxfbzualz0aebMfS39336fyAAAABTwURoMC/63DnwqcadD0ePJjicLxeh1i1WPEX5TEnthEAAAACqkm8uLa0rsKbXP0xbq5gRJxJJ8I8itteDxnMVujBqWMmoLGH6D8VFospGBA378mMf161oCF5Y0jSwHEiFhOx4</EncryptedPassword>
+    <_PublishTargetUrl>ftp://198.37.116.30/www.BackDreamStyle.somee.com</_PublishTargetUrl>
+    <History>True|2023-11-20T06:03:46.6689977Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>10/06/2023 07:37:23</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>10/06/2023 17:21:02</publishTime>
+    </File>
+    <File Include="BouncyCastle.Crypto.dll">
+      <publishTime>10/19/2021 06:53:34</publishTime>
+    </File>
+    <File Include="Castle.Core.dll">
+      <publishTime>12/30/2022 04:16:54</publishTime>
+    </File>
+    <File Include="Dapper.dll">
+      <publishTime>09/13/2023 15:46:28</publishTime>
+    </File>
+    <File Include="Google.Protobuf.dll">
+      <publishTime>10/26/2022 08:46:18</publishTime>
+    </File>
+    <File Include="K4os.Compression.LZ4.dll">
+      <publishTime>01/06/2023 12:16:12</publishTime>
+    </File>
+    <File Include="K4os.Compression.LZ4.Streams.dll">
+      <publishTime>01/06/2023 12:16:12</publishTime>
+    </File>
+    <File Include="K4os.Hash.xxHash.dll">
+      <publishTime>11/08/2022 13:08:14</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.Abstractions.dll">
+      <publishTime>09/28/2023 20:47:02</publishTime>
+    </File>
+    <File Include="Microsoft.EntityFrameworkCore.dll">
+      <publishTime>09/28/2023 20:47:18</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Caching.Abstractions.dll">
+      <publishTime>10/18/2022 11:31:34</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Caching.Memory.dll">
+      <publishTime>10/18/2022 11:31:44</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.DependencyInjection.Abstractions.dll">
+      <publishTime>10/18/2022 11:19:10</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.DependencyInjection.dll">
+      <publishTime>10/18/2022 11:19:34</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Logging.Abstractions.dll">
+      <publishTime>10/18/2022 11:19:52</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Logging.dll">
+      <publishTime>10/18/2022 11:20:18</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Options.dll">
+      <publishTime>10/18/2022 11:19:34</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Primitives.dll">
+      <publishTime>10/18/2022 11:19:10</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Abstractions.dll">
+      <publishTime>10/16/2023 21:21:10</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.JsonWebTokens.dll">
+      <publishTime>10/16/2023 20:53:36</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Logging.dll">
+      <publishTime>10/16/2023 20:55:48</publishTime>
+    </File>
+    <File Include="Microsoft.IdentityModel.Tokens.dll">
+      <publishTime>10/16/2023 21:01:54</publishTime>
+    </File>
+    <File Include="Microsoft.OpenApi.dll">
+      <publishTime>08/29/2020 15:14:12</publishTime>
+    </File>
+    <File Include="Microsoft.Win32.SystemEvents.dll">
+      <publishTime>11/15/2019 03:36:56</publishTime>
+    </File>
+    <File Include="Moq.dll">
+      <publishTime>08/11/2023 14:50:26</publishTime>
+    </File>
+    <File Include="MySql.Data.dll">
+      <publishTime>07/11/2023 22:30:50</publishTime>
+    </File>
+    <File Include="MySqlConnector.dll">
+      <publishTime>07/21/2023 18:32:02</publishTime>
+    </File>
+    <File Include="nunit.framework.dll">
+      <publishTime>03/20/2022 12:47:42</publishTime>
+    </File>
+    <File Include="PantAPIDreamsStyle.deps.json">
+      <publishTime>11/20/2023 01:00:38</publishTime>
+    </File>
+    <File Include="PantAPIDreamsStyle.dll">
+      <publishTime>11/20/2023 01:00:16</publishTime>
+    </File>
+    <File Include="PantAPIDreamsStyle.exe">
+      <publishTime>11/20/2023 01:00:21</publishTime>
+    </File>
+    <File Include="PantAPIDreamsStyle.pdb">
+      <publishTime>11/20/2023 01:00:16</publishTime>
+    </File>
+    <File Include="PantAPIDreamsStyle.runtimeconfig.json">
+      <publishTime>11/20/2023 01:00:43</publishTime>
+    </File>
+    <File Include="runtimes/browser/lib/net6.0/System.Text.Encodings.Web.dll">
+      <publishTime>10/18/2022 11:40:14</publishTime>
+    </File>
+    <File Include="runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll">
+      <publishTime>11/15/2019 03:56:36</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/comerr64.dll">
+      <publishTime>07/11/2023 22:29:24</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/gssapi64.dll">
+      <publishTime>07/11/2023 22:29:24</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/k5sprt64.dll">
+      <publishTime>07/11/2023 22:29:24</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/krb5_64.dll">
+      <publishTime>07/11/2023 22:29:24</publishTime>
+    </File>
+    <File Include="runtimes/win-x64/native/krbcc64.dll">
+      <publishTime>07/11/2023 22:29:24</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll">
+      <publishTime>11/15/2019 03:54:18</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll">
+      <publishTime>11/15/2019 03:54:20</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll">
+      <publishTime>11/15/2019 03:54:30</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll">
+      <publishTime>07/19/2017 05:01:34</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.Swagger.dll">
+      <publishTime>10/16/2021 07:54:10</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerGen.dll">
+      <publishTime>10/16/2021 07:54:36</publishTime>
+    </File>
+    <File Include="Swashbuckle.AspNetCore.SwaggerUI.dll">
+      <publishTime>10/16/2021 07:54:30</publishTime>
+    </File>
+    <File Include="System.Configuration.ConfigurationManager.dll">
+      <publishTime>11/20/2017 13:09:04</publishTime>
+    </File>
+    <File Include="System.Diagnostics.DiagnosticSource.dll">
+      <publishTime>02/15/2023 19:53:48</publishTime>
+    </File>
+    <File Include="System.Drawing.Common.dll">
+      <publishTime>09/18/2018 14:38:14</publishTime>
+    </File>
+    <File Include="System.IdentityModel.Tokens.Jwt.dll">
+      <publishTime>10/16/2023 20:52:14</publishTime>
+    </File>
+    <File Include="System.IO.Pipelines.dll">
+      <publishTime>04/13/2022 12:49:36</publishTime>
+    </File>
+    <File Include="System.Security.Cryptography.ProtectedData.dll">
+      <publishTime>07/19/2017 05:01:34</publishTime>
+    </File>
+    <File Include="System.Security.Permissions.dll">
+      <publishTime>11/15/2019 03:56:44</publishTime>
+    </File>
+    <File Include="System.Text.Encodings.Web.dll">
+      <publishTime>10/18/2022 11:19:30</publishTime>
+    </File>
+    <File Include="System.Text.Json.dll">
+      <publishTime>11/18/2022 11:32:58</publishTime>
+    </File>
+    <File Include="System.Windows.Extensions.dll">
+      <publishTime>11/15/2019 03:56:52</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>11/20/2023 01:01:03</publishTime>
+    </File>
+    <File Include="ZstdSharp.dll">
+      <publishTime>04/06/2023 07:25:30</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
